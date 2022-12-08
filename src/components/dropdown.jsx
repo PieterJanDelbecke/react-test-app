@@ -41,6 +41,8 @@ function Dropdown({}) {
 
   const save = (e) => {
     console.log("SUBMIT");
+    const formData = new FormData(e.target);
+    console.log([...formData.entries()]);
   };
 
   return (
@@ -48,7 +50,11 @@ function Dropdown({}) {
       <DropdownButton type="button" onClick={() => setOpen((prev) => !prev)}>
         Click
       </DropdownButton>
-      <Content>
+      <Content
+        onChange={(e) => {
+          console.log(e.target.value);
+        }}
+      >
         <Option>
           <input type="radio" value="one" name="numbers" />
           <label htmlFor="numbers">One</label>
