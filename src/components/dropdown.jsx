@@ -27,7 +27,9 @@ const Option = styled.div`
 `;
 const Input = styled.input``;
 
-const Label = styled.label``;
+const Label = styled.label`
+  margin-left: 10px;
+`;
 
 function Dropdown({}) {
   const options = [
@@ -68,7 +70,7 @@ function Dropdown({}) {
               readOnly
               hidden
             />
-            <label htmlFor={option.id}>{option.label}</label>
+            <Label htmlFor={option.id}>{option.label}</Label>
           </Option>
         ))}
       </Content>
