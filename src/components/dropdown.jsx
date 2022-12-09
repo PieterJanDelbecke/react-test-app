@@ -25,24 +25,9 @@ const Option = styled.div`
   height: 24px;
   border: 1px solid red;
 `;
-const Input = styled.input`
-  /* visibility: hidden;
-  height: 0;
-  width: 0;
-  opacity: 0;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 24px;
-  z-index: 1; */
-`;
+const Input = styled.input``;
 
-const Label = styled.label`
-  position: absolute;
-  left: 10px;
-  z-index: 0;
-`;
+const Label = styled.label``;
 
 function Dropdown({}) {
   const options = [
@@ -74,7 +59,7 @@ function Dropdown({}) {
       <Content open={open}>
         {options.map((option) => (
           <Option key={option.id} onClick={() => handleClick(option)}>
-            <Input
+            <input
               type="radio"
               id={option.id}
               value={option.id}
@@ -83,7 +68,7 @@ function Dropdown({}) {
               readOnly
               hidden
             />
-            <Label htmlFor={option.id}>{option.label}</Label>
+            <label htmlFor={option.id}>{option.label}</label>
           </Option>
         ))}
       </Content>
