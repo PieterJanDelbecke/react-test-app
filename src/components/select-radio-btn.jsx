@@ -13,6 +13,7 @@ const DropdownButton = styled.button`
   justify-content: space-between;
   margin-bottom: 2px;
 `;
+
 const Content = styled.div`
   background-color: yellow;
   width: 200px;
@@ -22,6 +23,7 @@ const Content = styled.div`
 
 const Option = styled.div`
   position: relative;
+  display: flex;
   height: 24px;
   border: 1px solid red;
 `;
@@ -29,6 +31,10 @@ const Input = styled.input``;
 
 const Label = styled.label`
   margin-left: 10px;
+`;
+
+const CheckIconDiv = styled.div`
+  width: 20px;
 `;
 
 function SelectRadioBtn({}) {
@@ -61,6 +67,9 @@ function SelectRadioBtn({}) {
       <Content open={open}>
         {options.map((option) => (
           <Option key={option.id} onClick={() => handleClick(option)}>
+            <CheckIconDiv>
+              {selectedOption === option.label && <label>v</label>}
+            </CheckIconDiv>
             <input
               type="radio"
               id={option.id}

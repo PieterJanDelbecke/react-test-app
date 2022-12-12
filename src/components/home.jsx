@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "@emotion/styled";
 
-import RadioBtnSelect from "./select-radio-btn";
+import SelectRadioBtn from "./select-radio-btn";
+import SelectDiv from "./select-div";
 
 const Container = styled.div`
   border: 1px solid red;
@@ -16,11 +17,12 @@ function Home() {
   return (
     <>
       <Container>
-        <Header>RadioBtn Dropdown:</Header>
-        <RadioBtnSelect />
+        <Header>Select using RadioBtn:</Header>
+        <SelectRadioBtn />
       </Container>
       <Container>
-        <Header>Div Dropdown:</Header>
+        <Header>Select using Div:</Header>
+        <SelectDiv />
       </Container>
     </>
   );
