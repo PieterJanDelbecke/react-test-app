@@ -2,7 +2,10 @@ import { useState } from "react";
 import styled from "@emotion/styled";
 
 const DropdownForm = styled.form`
-  position: relative;
+  display: inline-flex;
+`;
+
+const DropdownContainer = styled.div`
   width: 200px;
 `;
 
@@ -32,6 +35,12 @@ const CheckIconDiv = styled.div`
   width: 20px;
 `;
 
+const Button = styled.button`
+  margin-left: 20px;
+  width: 80px;
+  height: 24px;
+`;
+
 function SelectDiv() {
   const options = [
     { id: "001", label: "one" },
@@ -57,23 +66,25 @@ function SelectDiv() {
 
   return (
     <DropdownForm onSubmit={save}>
-      <DropdownButton type="button" onClick={() => setOpen((prev) => !prev)}>
-        {selectedOption}
-      </DropdownButton>
-      <Content open={open}>
-        {options.map((option) => (
-          <>
-            <Option key={option.id} onClick={() => handleClick(option)}>
-              <CheckIconDiv>
-                {selectedOption === option.label && <label>v</label>}
-              </CheckIconDiv>
-              {option.label}
-            </Option>
-          </>
-        ))}
-      </Content>
-      <input name="numbers" value={selectedOption || ""} hidden readOnly />
-      <button>SUBMIT</button>
+      <DropdownContainer>
+        <DropdownButton type="button" onClick={() => setOpen((prev) => !prev)}>
+          {selectedOption}
+        </DropdownButton>
+        <Content open={open}>
+          {options.map((option) => (
+            <>
+              <Option key={option.id} onClick={() => handleClick(option)}>
+                <CheckIconDiv>
+                  {selectedOption === option.label && <label>v</label>}
+                </CheckIconDiv>
+                {option.label}
+              </Option>
+            </>
+          ))}
+        </Content>
+        <input name="numbers" value={selectedOption || ""} hidden readOnly />
+      </DropdownContainer>
+      <Button>SUBMIT</Button>
     </DropdownForm>
   );
 }

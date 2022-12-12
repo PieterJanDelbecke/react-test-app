@@ -2,7 +2,10 @@ import { useState, useRef, useEffect } from "react";
 import styled from "@emotion/styled";
 
 const DropdownForm = styled.form`
-  position: relative;
+  display: inline-flex;
+`;
+
+const DropdownContainer = styled.div`
   width: 200px;
 `;
 
@@ -37,6 +40,12 @@ const CheckIconDiv = styled.div`
   width: 20px;
 `;
 
+const Button = styled.button`
+  margin-left: 20px;
+  width: 80px;
+  height: 24px;
+`;
+
 function SelectRadioBtn({}) {
   const options = [
     { id: "001", label: "one" },
@@ -61,29 +70,31 @@ function SelectRadioBtn({}) {
 
   return (
     <DropdownForm onSubmit={save}>
-      <DropdownButton type="button" onClick={() => setOpen((prev) => !prev)}>
-        {selectedOption}
-      </DropdownButton>
-      <Content open={open}>
-        {options.map((option) => (
-          <Option key={option.id} onClick={() => handleClick(option)}>
-            <CheckIconDiv>
-              {selectedOption === option.label && <label>v</label>}
-            </CheckIconDiv>
-            <input
-              type="radio"
-              id={option.id}
-              value={option.id}
-              name="numbers"
-              checked={option.label === selectedOption ? true : false}
-              readOnly
-              hidden
-            />
-            <Label htmlFor={option.id}>{option.label}</Label>
-          </Option>
-        ))}
-      </Content>
-      <button>SUBMIT</button>
+      <DropdownContainer>
+        <DropdownButton type="button" onClick={() => setOpen((prev) => !prev)}>
+          {selectedOption}
+        </DropdownButton>
+        <Content open={open}>
+          {options.map((option) => (
+            <Option key={option.id} onClick={() => handleClick(option)}>
+              <CheckIconDiv>
+                {selectedOption === option.label && <label>v</label>}
+              </CheckIconDiv>
+              <input
+                type="radio"
+                id={option.id}
+                value={option.id}
+                name="numbers"
+                checked={option.label === selectedOption ? true : false}
+                readOnly
+                hidden
+              />
+              <Label htmlFor={option.id}>{option.label}</Label>
+            </Option>
+          ))}
+        </Content>
+      </DropdownContainer>
+      <Button>SUBMIT</Button>
     </DropdownForm>
   );
 }
