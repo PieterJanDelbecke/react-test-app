@@ -31,7 +31,7 @@ const Label = styled.label`
   margin-left: 10px;
 `;
 
-function Dropdown({}) {
+function SelectRadioBtn({}) {
   const options = [
     { id: "001", label: "one" },
     { id: "002", label: "two" },
@@ -79,4 +79,4 @@ function Dropdown({}) {
   );
 }
 
-export default Dropdown;
+export default SelectRadioBtn;
